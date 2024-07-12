@@ -1,0 +1,18 @@
+types: [
+  "build",
+  "ci",
+  "docs",
+  "feat",
+  "fix",
+  "perf",
+  "refactor",
+  "style",
+  "test",
+  "chore",
+]
+
+scopes: [
+  "api",
+  "core",
+  "cli",
+]
