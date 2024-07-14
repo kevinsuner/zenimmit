@@ -35,7 +35,12 @@ func (i Input) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case "ctrl+c", "q":
 			return i, tea.Quit
 		case "enter":
-			return stepper.Next(i.input.Value()), nil
+			model, cmd := stepper.Next(i.input.Value())
+			if model != nil {
+				return model, cmd
+			}
+
+			return i, cmd
 		}
 	case errMsg:
 		i.err = msg

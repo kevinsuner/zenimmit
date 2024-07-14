@@ -37,7 +37,12 @@ func (l List) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				l.cursor++
 			}
 		case "enter", " ":
-			return stepper.Next(l.options[l.cursor]), nil
+			model, cmd := stepper.Next(l.options[l.cursor])
+			if model != nil {
+				return model, cmd
+			}
+
+			return l, cmd
 		}
 	}
 
