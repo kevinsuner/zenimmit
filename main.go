@@ -4,11 +4,11 @@ import (
 	"log/slog"
 	"os"
 
-	"zenimmit/pkg/list"
-
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/spf13/viper"
 )
+
+var stepper = newStepper()
 
 func main() {
 	viper.SetConfigName("zenimmit")
@@ -19,7 +19,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	program := tea.NewProgram(list.New(viper.GetStringSlice("types")))
+	program := tea.NewProgram(newList(viper.GetStringSlice("types")))
 	if _, err := program.Run(); err != nil {
 		slog.Error("failed to run program", "error", err)
 		os.Exit(1)
