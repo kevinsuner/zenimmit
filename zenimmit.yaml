@@ -12,7 +12,8 @@ types: [
 ]
 
 scopes: [
-  "api",
+  "components",
+  "stepper",
   "core",
-  "cli",
+  "config",
 ]
