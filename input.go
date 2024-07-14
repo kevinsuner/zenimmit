@@ -7,8 +7,6 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 )
 
-type errMsg error
-
 type Input struct {
 	input textinput.Model
 	err   error
@@ -17,8 +15,8 @@ type Input struct {
 func newInput() Input {
 	input := textinput.New()
 	input.Placeholder = "refactored spaghetti code, now it's linguini"
-	input.CharLimit = 50
-	input.Width = 50
+	input.CharLimit = subjectLength
+	input.Width = subjectLength
 	input.Focus()
 
 	return Input{input: input, err: nil}
@@ -42,7 +40,7 @@ func (i Input) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 			return i, cmd
 		}
-	case errMsg:
+	case error:
 		i.err = msg
 		return i, nil
 	}
