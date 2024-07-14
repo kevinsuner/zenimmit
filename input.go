@@ -30,7 +30,7 @@ func (i Input) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
-		case "ctrl+c", "q":
+		case "ctrl+c":
 			return i, tea.Quit
 		case "enter":
 			model, cmd := stepper.Next(i.input.Value())
@@ -55,5 +55,5 @@ func (i Input) View() string {
 		"%s\n\n%s\n\n%s\n",
 		stepper.Current().question,
 		i.input.View(),
-		"Press q to quit.")
+		"Press CTRL+C to quit.")
 }

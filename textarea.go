@@ -32,7 +32,7 @@ func (t Textarea) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
-		case "ctrl+c", "q":
+		case "ctrl+c":
 			return t, tea.Quit
 		case "ctrl+s":
 			model, cmd := stepper.Next(t.textarea.Value())
@@ -58,5 +58,5 @@ func (t Textarea) View() string {
 		"%s\n\n%s\n\n%s\n",
 		stepper.Current().question,
 		t.textarea.View(),
-		"Press q to quit | CTRL+S to submit")
+		"Press CTRL+C to quit | CTRL+S to submit")
 }

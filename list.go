@@ -26,7 +26,7 @@ func (l List) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
-		case "ctrl+c", "q":
+		case "ctrl+c":
 			return l, tea.Quit
 		case "up", "k":
 			if l.cursor > 0 {
@@ -62,6 +62,6 @@ func (l List) View() string {
 		builder.WriteString(fmt.Sprintf("%s %s\n", cursor, option))
 	}
 
-	builder.WriteString("\nPress q to quit.\n")
+	builder.WriteString("\nPress CTRL+C to quit.\n")
 	return builder.String()
 }
