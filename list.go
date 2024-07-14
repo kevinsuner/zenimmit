@@ -12,17 +12,17 @@ type List struct {
 	options []string
 }
 
-func newList(options []string) *List {
-	return &List{
+func newList(options []string) List {
+	return List{
 		options: options,
 	}
 }
 
-func (l *List) Init() tea.Cmd {
+func (l List) Init() tea.Cmd {
 	return nil // noop
 }
 
-func (l *List) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+func (l List) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
 		switch msg.String() {
@@ -37,14 +37,14 @@ func (l *List) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				l.cursor++
 			}
 		case "enter", " ":
-			return stepper.Next(), nil
+			return stepper.Next(l.options[l.cursor]), nil
 		}
 	}
 
 	return l, nil
 }
 
-func (l *List) View() string {
+func (l List) View() string {
 	var builder strings.Builder
 	builder.WriteString(fmt.Sprintf("%s\n\n", stepper.Current().question))
 
