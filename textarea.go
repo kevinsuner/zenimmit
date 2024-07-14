@@ -14,7 +14,7 @@ type Textarea struct {
 
 func newTextarea() Textarea {
 	area := textarea.New()
-	area.Placeholder = "Start typing here..."
+	area.Placeholder = "start typing here..."
 	area.SetWidth(lineLength)
 	area.Focus()
 
