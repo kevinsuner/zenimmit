@@ -14,7 +14,7 @@ type Input struct {
 
 func newInput() Input {
 	input := textinput.New()
-	input.Placeholder = "refactored spaghetti code, now it's linguini"
+	input.Placeholder = "E.g. Fix articles being sorted in ascending order"
 	input.CharLimit = subjectLength
 	input.Width = subjectLength
 	input.Focus()
