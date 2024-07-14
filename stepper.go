@@ -40,13 +40,13 @@ func newStepper() Stepper {
 				question: "What is the scope of the change?",
 			},
 			commitSubject: {
-				question: "What is the subject of the change?",
+				question: "Write the subject of the change (50 chars max)",
 			},
 			hasCommitBody: {
-				question: "Do you want add more information?",
+				question: "Do you want to add more information?",
 			},
 			commitBody: {
-				question: "What is the body of the change?",
+				question: "Write the body of the change",
 			},
 		},
 	}
