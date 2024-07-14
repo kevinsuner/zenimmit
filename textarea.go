@@ -14,7 +14,7 @@ type Textarea struct {
 
 func newTextarea() Textarea {
 	area := textarea.New()
-	area.Placeholder = "start typing here..."
+	area.Placeholder = "E.g. Added a fn to sort an unsorted 'map' using 'sort.Sort()'..."
 	area.SetWidth(lineLength)
 	area.Focus()
 
@@ -55,7 +55,7 @@ func (t Textarea) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (t Textarea) View() string {
 	return fmt.Sprintf(
-		"%s\n\n%s\n\n%s\n\n",
+		"%s\n\n%s\n\n%s\n",
 		stepper.Current().question,
 		t.textarea.View(),
 		"Press q to quit | CTRL+S to submit")
