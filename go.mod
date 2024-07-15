@@ -1,4 +1,4 @@
-module zenimmit
+module github.com/kevinsuner/zenimmit
 
 go 1.22
 
